@@ -1,0 +1,12 @@
+{
+  "name": "dependent-build-test",
+  "description": "Test repo for npm-dependent-build project.",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "dependent-build": "latest"
+  }
+}
