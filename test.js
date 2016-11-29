@@ -1,14 +1,22 @@
-const assert = require('assert');
+const fs = require('fs');
 const path = require('path');
+const assert = require('assert');
+
+function getPackageVersion(packagePath) {
+  const packageContent = fs.readFileSync(packagePath);
+  const packageJson = JSON.parse(packageContent);
+  return packageJson.version;
+}
+
+const actualFilePath = require.resolve('dependent-build/package.json');
+const actualVersion = getPackageVersion(actualFilePath);
 
 const cwd = process.cwd();
 const expectedFolder = process.argv[2] || '';
-const expectedFilePath = path.resolve(cwd, expectedFolder, 'package.json');
-const actualFilePath = require.resolve('dependent-build/package.json');
 
 if (expectedFolder) {
-  assert.equal(actualFilePath, expectedFilePath);
+  const expectedVersion = getPackageVersion(path.resolve(cwd, expectedFolder, 'package.json'));
+  assert.equal(actualVersion, expectedVersion);
 }
 
-console.log('Path of dependent-build/package.json:');
-console.log(actualFilePath);
+console.log('Version of dependent-build/package.json:', actualVersion);
