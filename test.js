@@ -19,4 +19,4 @@ if (expectedFolder) {
   assert.equal(actualVersion, expectedVersion);
 }
 
-console.log('Version of dependent-build/package.json:', actualVersion);
+console.log('Version of dependent-build/package.json:', actualVersion); // eslint-disable-line no-console
