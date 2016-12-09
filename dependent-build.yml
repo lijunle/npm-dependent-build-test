@@ -1,0 +1,3 @@
+https://github.com/lijunle/npm-dependent-build:
+  - yarn install
+  - eslint --max-warnings=0 ${HOST_DIR}/*.js # Use dependent bin's ESLint command to lint host project files.
