@@ -10,5 +10,6 @@ install:
 
 test_script:
   - yarn run test
+  - yarn run test-dependent
 
 build: off

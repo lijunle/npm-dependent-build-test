@@ -9,3 +9,4 @@ node_js:
 
 script:
   - yarn run test
+  - yarn run test-dependent
